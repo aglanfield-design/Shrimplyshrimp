@@ -1,19 +1,14 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #020617;
   color: #e2e8f0;
-  line-height: 1.6;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 25px 15px;
+  padding: 25px;
   background: linear-gradient(90deg, #0ea5e9, #22c55e);
   font-size: 34px;
   font-weight: bold;
@@ -24,18 +19,41 @@ header {
   font-size: 14px;
   background: linear-gradient(90deg, #0ea5e9, #22c55e);
   margin-top: -10px;
-  margin-bottom: 0;
-  padding-bottom: 15px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 30px;
+}
+
+.hero p {
+  color: #94a3b8;
+}
+
+/* TRUST BAR */
+.trust {
+  text-align: center;
+  color: #22c55e;
+  font-size: 14px;
+  margin-bottom: 25px;
+  padding: 0 10px;
 }
 
 /* NAV */
 nav {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-wrap: wrap; /* Allows nav to wrap on tiny screens */
+  gap: 15px;
   background: #111827;
-  padding: 14px;
+  padding: 12px;
 }
 
 nav a {
@@ -44,76 +62,193 @@ nav a {
   font-weight: bold;
 }
 
-nav a.active {
-  text-decoration: underline;
-  color: #22c55e;
-}
-
 /* CONTAINER */
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 15px 40px 15px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 15px;
 }
 
 h2 {
-  color: #ffffff;
   border-bottom: 2px solid #22c55e;
-  padding-bottom: 8px;
-  margin-top: 35px;
+  padding-bottom: 10px;
 }
 
-ul {
-  padding-left: 20px;
+/* FLEXBOX PRODUCTS LAYOUT */
+.products {
+  display: flex;
+  flex-wrap: wrap; /* This makes items drop to the next line */
+  gap: 25px;
+  justify-content: center; /* Centers the cards on the screen */
 }
 
-li {
-  margin-bottom: 8px;
-}
-
-/* WATER PARAMETERS GRID */
-.params-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.param-card {
+/* CARD */
+.card {
   background: #111827;
-  border: 1px solid #1e293b;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 14px;
   text-align: center;
+  position: relative;
+  transition: 0.3s;
+  /* Flex-basis: sets the "ideal" width; flex-grow: allows it to fill space */
+  flex: 1 1 300px; 
+  max-width: 350px; /* Prevents cards from getting awkwardly wide on desktop */
 }
 
-/* FAQ STYLING */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* SOLD OUT & LABELS */
+.sold-out {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background: red;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.card.sold img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.img-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.img-container:hover img {
+  transform: scale(1.15);
+}
+
+.grade, .grade1, .grade2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.grade { background: #0ea5e9; }
+.grade1 { background: #07c204; }
+.grade2 { background: #aba005; }
+
+.badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: orange;
+  color: black;
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* PRICE & BUTTON */
+.price {
+  color: #22c55e;
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+  padding: 15px;
+  font-size: 18px;
+  background: #22c55e;
+  color: black;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: #16a34a;
+}
+
+.stock {
+  color: #facc15;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* SHIPPING BANNER */
+.free-ship {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  background: #22c55e;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer {
+  background: #020617;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #1e293b;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+  header { font-size: 26px; }
+  .free-ship { position: relative; top: 0; left: 0; text-align: center; margin: 10px; display: block; }
+  .card { flex: 1 1 100%; } /* Cards take full width on small phones */
+}
+
 .faq-container {
   background-color: #151a2d;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 30px;
+  max-width: 600px;
   width: 100%;
-  margin-top: 40px;
 }
-
 .faq-item {
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .faq-item:last-child {
   border-bottom: none;
 }
 
+/* Style the question button */
 .faq-question {
   background-color: transparent;
   border: none;
   color: #d6f5f6;
   cursor: pointer;
-  padding: 18px 0;
+  padding: 20px 0;
   width: 100%;
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -123,19 +258,21 @@ li {
 
 .faq-question:hover, 
 .faq-question.active {
-  color: #22c55e;
+  color: #a4a4a4;
 }
 
+/* The plus/minus icon */
 .faq-question .icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   transition: transform 0.3s ease;
-  margin-left: 10px;
 }
 
+/* Rotate the plus to look like an 'x' when active */
 .faq-question.active .icon {
   transform: rotate(45deg);
 }
 
+/* Hide the answer by default and prep the animation */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -144,26 +281,89 @@ li {
 
 .faq-answer p {
   margin: 0;
-  padding-bottom: 18px;
-  color: #cbd5e1;
+  padding-bottom: 20px;
+  color: #ffffff;
   line-height: 1.6;
 }
 
-/* MOBILE OPTIMIZATION */
-@media (max-width: 600px) {
-  header { 
-    font-size: 24px; 
-  }
-  
-  .container {
-    padding: 15px;
-  }
-  
-  .faq-container {
-    padding: 15px;
-  }
+/* ========================================================
+   NEW ADDITIONS FOR INFO.HTML
+   ======================================================== */
 
-  .faq-question {
-    font-size: 0.95rem;
-  }
+/* General content blocks to match main page cards */
+.info-section {
+  background: #111827;
+  padding: 30px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.info-section p {
+  line-height: 1.7;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+/* Styling the 'What We Offer' list cleanly */
+.offers-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offers-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #e2e8f0;
+}
+
+.offers-list li:last-child {
+  border-bottom: none;
+}
+
+.check-icon {
+  color: #22c55e;
+  font-size: 18px;
+}
+
+/* The Water Parameters Grid */
+.params-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.param-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #334155;
+  transition: transform 0.3s;
+  color: #e2e8f0;
+}
+
+.param-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.param-card strong {
+  display: block;
+  color: #0ea5e9;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* Centers the FAQ section without breaking your existing .faq-container constraints */
+.faq-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  width: 100%;
 }
