@@ -22,7 +22,14 @@ header {
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
-
+.subheader1 {
+  text-align: center;
+  font-size: 19px;
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
 /* HERO */
 .hero {
   text-align: center;
@@ -314,7 +321,7 @@ footer {
 
 .offers-list li {
   padding: 12px 0;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 4.1px solid #1e293b;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -553,5 +560,45 @@ footer {
   cursor: pointer;
   font-family: Arial, sans-serif;
   margin-top: 10px;
+}
+/* ========================================================
+   CALCULATOR SPECIFIC STYLES
+   ======================================================== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.calc-grid .form-group {
+  margin-bottom: 0; 
+}
+
+.calc-results {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 25px;
+  border-left: 5px solid #0ea5e9;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.calc-results h3 {
+  margin-top: 0;
+  color: #22c55e;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 a:link{color:#e2e8f0}

@@ -18,23 +18,19 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <!-- Shipping Banner (Optional, included since it's in your CSS) -->
+        <!-- Shipping Banner -->
         <div class="free-ship">Free Shipping on orders over $50!</div>
 
         <header>🦐 ShrimplyShrimp</header>
-        <div class="subheader">About us & Info</div>
+        <div class="subheader1">About us & Info</div>
 
         <nav>
-            <a href="/index.html" class="active">Home</a>
-            <a href="#high">High</a>
-            <a href="#mid">Mid</a>
-            <a href="#low">Starter</a>
+            <a href="/index.html">Home</a>
             <a href="/shipping.html">Shipping</a>
-            <a href="/info.html">Information</a>
+            <u><a href="/info.html" class="active">Information</a></u>
         </nav>
 
         <main class="container">
-            <!-- Grouped into a styled card for a cleaner look -->
             <section class="info-section about-section">
                 <h2>Our Mission</h2>
                 <p>
@@ -65,10 +61,10 @@
             <section class="info-section offers-section">
                 <h2>What We Offer</h2>
                 <ul class="offers-list">
-                    <li><span class="check-icon"></span> Selectively bred shrimp with strong coloration</li>
-                    <li><span class="check-icon"></span> Healthy, active shrimp raised in optimal conditions</li>
-                    <li><span class="check-icon"></span> Clear grading so you know exactly what you're getting</li>
-                    <li><span class="check-icon"></span> Secure, insulated shipping for safe arrival</li>
+                    <li><span class="check-icon">✔</span> Selectively bred shrimp with strong coloration</li>
+                    <li><span class="check-icon">✔</span> Healthy, active shrimp raised in optimal conditions</li>
+                    <li><span class="check-icon">✔</span> Clear grading so you know exactly what you're getting</li>
+                    <li><span class="check-icon">✔</span> Secure, insulated shipping for safe arrival</li>
                 </ul>
             </section>
 
@@ -84,7 +80,44 @@
                 </div>
             </section>
 
-            <!-- Wrapped in a flex container to center the max-width: 600px box -->
+            <!-- NEW CALCULATOR SECTION -->
+            <section class="info-section calculator-section">
+                <h2>Boa Shrimp Setup Calculator</h2>
+                <p>Planning a high-tech active soil setup? Enter your tank dimensions below to calculate exact requirements for starting a healthy Boa Shrimp colony.</p>
+                
+                <div class="form-group">
+                    <label for="unit-toggle">Measurement System:</label>
+                    <select id="unit-toggle">
+                        <option value="imperial">Imperial (Gallons / Inches)</option>
+                        <option value="metric">Metric (Liters / Centimeters)</option>
+                    </select>
+                </div>
+
+                <div class="calc-grid">
+                    <div class="form-group">
+                        <label id="label-volume" for="tank-volume">Tank Volume (Gallons):</label>
+                        <input type="number" id="tank-volume" placeholder="e.g. 10" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label id="label-length" for="tank-length">Tank Length (Inches):</label>
+                        <input type="number" id="tank-length" placeholder="e.g. 20" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label id="label-width" for="tank-width">Tank Width (Inches):</label>
+                        <input type="number" id="tank-width" placeholder="e.g. 10" min="1">
+                    </div>
+                </div>
+                
+                <button class="button" id="calculate-btn" type="button">Calculate Setup Needs</button>
+
+                <div id="calc-results" class="calc-results hidden">
+                    <h3>Your Recommended Setup</h3>
+                    <ul class="offers-list" id="results-list">
+                        <!-- Dynamic Results Injected Here via JS -->
+                    </ul>
+                </div>
+            </section>
+
             <div class="faq-wrapper">
                 <section class="faq-container">
                     <h2>FAQ</h2>
