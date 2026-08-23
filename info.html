@@ -71,33 +71,44 @@
             <section class="info-section parameters-section">
                 <h2>Water Parameters</h2>
                 <p>To ensure your shrimp thrive, we recommend matching our breeding parameters closely:</p>
-                <div class="params-grid">
-                    <div class="param-card"><strong>pH</strong> 5.5–6.2</div>
-                    <div class="param-card"><strong>GH</strong> 4–6</div>
-                    <div class="param-card"><strong>KH</strong> 0–1</div>
-                    <div class="param-card"><strong>TDS</strong> 110–140</div>
-                    <div class="param-card"><strong>Temp</strong> 68–72°F</div>
-                </div>
+               <div class="params-grid">
+    <div class="param-card">
+        <strong>pH</strong> 5.5–6.2
+        <div class="param-desc"><strong>Potential of Hydrogen:</strong> Measures water acidity. Caridina shrimp need acidic water to thrive and breed safely.</div>
+    </div>
+    <div class="param-card">
+        <strong>GH</strong> 4–6
+        <div class="param-desc"><strong>General Hardness:</strong> Measures calcium and magnesium. These minerals are essential for your shrimp to build strong shells and molt successfully.</div>
+    </div>
+    <div class="param-card">
+        <strong>KH</strong> 0–1
+        <div class="param-desc"><strong>Carbonate Hardness:</strong> Measures buffering capacity. This is kept at 0-1 so the active soil can easily lower the pH without resistance.</div>
+    </div>
+    <div class="param-card">
+        <strong>TDS</strong> 110–140
+        <div class="param-desc"><strong>Total Dissolved Solids:</strong> The combined total of all minerals and organics in the water. Used as a gauge to ensure water isn't too "thick".</div>
+    </div>
+    <div class="param-card">
+        <strong>Temp</strong> 68–72°F
+        <div class="param-desc"><strong>Temperature:</strong> Cooler water holds more oxygen and reduces bacterial infections. 68-72°F is the sweet spot for health and breeding.</div>
+    </div>
+</div>
             </section>
 
-            <!-- NEW CALCULATOR SECTION -->
+            <!-- NEW SMART CALCULATOR SECTION -->
             <section class="info-section calculator-section">
                 <h2>Boa Shrimp Setup Calculator</h2>
-                <p>Planning a high-tech active soil setup? Enter your tank dimensions below to calculate exact requirements for starting a healthy Boa Shrimp colony.</p>
+                <p>Planning a high-tech active soil setup? Enter your exact tank dimensions below. The calculator evaluates your tank's footprint and volume to generate a realistic Boa Shrimp colony plan.</p>
                 
                 <div class="form-group">
                     <label for="unit-toggle">Measurement System:</label>
                     <select id="unit-toggle">
-                        <option value="imperial">Imperial (Gallons / Inches)</option>
-                        <option value="metric">Metric (Liters / Centimeters)</option>
+                        <option value="imperial">Imperial (Inches)</option>
+                        <option value="metric">Metric (Centimeters)</option>
                     </select>
                 </div>
 
                 <div class="calc-grid">
-                    <div class="form-group">
-                        <label id="label-volume" for="tank-volume">Tank Volume (Gallons):</label>
-                        <input type="number" id="tank-volume" placeholder="e.g. 10" min="1">
-                    </div>
                     <div class="form-group">
                         <label id="label-length" for="tank-length">Tank Length (Inches):</label>
                         <input type="number" id="tank-length" placeholder="e.g. 20" min="1">
@@ -106,12 +117,17 @@
                         <label id="label-width" for="tank-width">Tank Width (Inches):</label>
                         <input type="number" id="tank-width" placeholder="e.g. 10" min="1">
                     </div>
+                    <div class="form-group">
+                        <label id="label-height" for="tank-height">Tank Height (Inches):</label>
+                        <input type="number" id="tank-height" placeholder="e.g. 12" min="1">
+                    </div>
                 </div>
                 
                 <button class="button" id="calculate-btn" type="button">Calculate Setup Needs</button>
 
                 <div id="calc-results" class="calc-results hidden">
                     <h3>Your Recommended Setup</h3>
+                    <div id="stability-warning"></div>
                     <ul class="offers-list" id="results-list">
                         <!-- Dynamic Results Injected Here via JS -->
                     </ul>
@@ -233,6 +249,186 @@
                             </p>
                         </div>
                     </div>
+<div class="faq-item">
+    <button class="faq-question">
+        What do freshwater aquarium shrimp eat?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Dwarf shrimp are natural scavengers that primarily feed on biofilm and algae in your aquarium. You can supplement their diet 2 to 3 times a week with specialized shrimp pellets, blanched vegetables (like spinach or zucchini), and dried Indian almond leaves.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        How many dwarf shrimp can I keep per gallon of water?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Because shrimp have a tiny bioload, you can safely keep around 5 to 10 dwarf shrimp per gallon of water in a fully cycled, established aquarium with plenty of live plants and biofilm.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        What is the ideal water temperature for Cherry Shrimp (Neocaridina)?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Neocaridina shrimp thrive best in water temperatures between 68°F and 78°F (20°C to 25°C). While they can tolerate cooler room-temperature water, warmer temperatures near 75°F speed up their growth and breeding cycles.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Do I need a special filter for a shrimp tank?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Sponge filters or intake pre-filter sponges are strongly recommended. Standard power filters can easily suck up tiny shrimplets, whereas sponge filters provide gentle filtration and double as a feeding ground for grazing shrimp.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Can dwarf shrimp live peacefully with community fish?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Yes, but caution is necessary. Very small fish like Chili Rasboras, Otocinclus, or Neon Tetras can coexist with adult shrimp, but almost any fish will eat newborn shrimplets if given the chance. Provide dense vegetation like Java Moss for protection.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        How often do Neocaridina shrimp breed?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Once female shrimp reach maturity at around 3 to 4 months old, they can carry eggs every 30 days under ideal water conditions. Each clutch typically yields 20 to 30 baby shrimp.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        What are the best plants to keep in a shrimp aquarium?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Mosses (such as Java Moss or Christmas Moss), Subwassertang, Anubias, Hornwort, and Marimo Moss Balls are ideal. Mosses trap microscopic particles and offer essential hiding places for newly hatched shrimplets.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        What is the "White Ring of Death" and how do I prevent it?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            The "White Ring of Death" is a clear band across a shrimp's carapace caused by failed molting due to improper GH/KH mineral levels or sudden water changes. Prevent it by maintaining steady General Hardness (GH 4–8) and drip-acclimating top-off water.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        How should I acclimate new shrimp to my tank?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Drip acclimation is the safest method. Slowly add tank water to their bag water at a rate of 1 to 2 drops per second over a period of 1 to 2 hours to prevent shock from parameter shifts.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Do shrimp require specific water hardness or mineral supplements?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Yes, shrimp need calcium and magnesium to form strong exoskeletons. If using RO (reverse osmosis) water, remineralize it with a specialized GH/KH booster to maintain a GH of 6–8 and KH of 2–5 for Neocaridina.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        What is the average lifespan of freshwater dwarf shrimp?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Under optimal water conditions and with a stable diet, dwarf shrimp usually live between 1 to 2 years in a home aquarium.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Why are my newly introduced shrimp hiding all the time?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Shrimp are sensitive to changes in lighting, water chemistry, and potential predators. Hiding for the first few days in a new tank is completely normal while they adjust and get comfortable with their surroundings.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Will different colors of Cherry shrimp breed together?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Yes, mixing different color varieties of Neocaridina davidi (e.g., Red Cherry, Blue Dream, Yellow Neon) will lead to interbreeding, causing offspring over generations to revert to their wild brown/translucent coloration.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        Why is copper harmful to aquarium shrimp?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Copper disrupts the oxygen transport mechanism in invertebrates and is highly toxic even at trace levels. Always check plant fertilizers, snail treatments, and fish medications for copper before adding them to a shrimp tank.
+        </p>
+    </div>
+</div>
+
+<div class="faq-item">
+    <button class="faq-question">
+        How do I deal with pests like Planaria or Hydra in a shrimp tank?
+        <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+        <p>
+            Planaria and Hydra actively prey on shrimplets. You can safely eliminate them using shrimp-safe treatments containing Betel nut palm extract (such as "No-Planaria") or by using specialized glass worm traps.
+        </p>
+    </div>
+</div>
+
 
                     <div class="faq-item">
                         <button class="faq-question">

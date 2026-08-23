@@ -265,7 +265,7 @@ footer {
 
 .faq-question:hover, 
 .faq-question.active {
-  color: #a4a4a4;
+  color: #ffffff;
 }
 
 /* The plus/minus icon */
@@ -343,21 +343,26 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 15px;
   margin-top: 20px;
+  align-items: start; /* Prevents neighboring cards from stretching when one opens */
 }
 
+/* Parameter Card Styling & Clickable Indicators */
 .param-card {
   background: #1e293b;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   border: 1px solid #334155;
-  transition: transform 0.3s;
+  transition: transform 0.3s, background 0.3s;
   color: #e2e8f0;
+  cursor: pointer;
+  position: relative;
 }
 
 .param-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  background: #233147; /* Brightens background on hover */
 }
 
 .param-card strong {
@@ -367,6 +372,23 @@ footer {
   margin-bottom: 8px;
 }
 
+/* Adds "▼ click to expand" hint */
+.param-card::after {
+  content: "▼ click to expand";
+  display: block;
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* Changes to "▲ close" when card is active */
+.param-card.active::after {
+  content: "▲ close";
+  color: #22c55e;
+}
 /* Centers the FAQ section without breaking your existing .faq-container constraints */
 .faq-wrapper {
   display: flex;
@@ -602,3 +624,68 @@ footer {
   to { opacity: 1; transform: translateY(0); }
 }
 a:link{color:#e2e8f0}
+
+
+/* Container & Question styling */
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 8px;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 16px 0;
+    text-align: left;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Icon rotation on click */
+.faq-question .icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-question .icon {
+    transform: rotate(45deg);
+}
+
+/* Hidden by default with smooth height transition */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 0 0 16px 0;
+    line-height: 1.6;
+    color: #fafcff;
+}
+
+/* Parameter Card Text Animations */
+.param-desc {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin-top 0.3s ease;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.param-desc strong {
+  display: inline;
+  color: #e2e8f0;
+  font-size: 13px;
+}
