@@ -30,6 +30,7 @@ header {
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
+
 /* HERO */
 .hero {
   text-align: center;
@@ -67,6 +68,12 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* Updated Nav Active State */
+nav a.active {
+  text-decoration: underline;
+  color: #22c55e;
 }
 
 /* CONTAINER */
@@ -138,7 +145,8 @@ h2 {
   transition: 0.4s;
 }
 
-.img-container:hover img {
+/* Prevent scale hover on carousel to avoid layout breaks */
+.img-container:not(.carousel):hover img {
   transform: scale(1.15);
 }
 
@@ -199,9 +207,9 @@ h2 {
   font-size: 14px;
 }
 
-/* SHIPPING BANNER */
+/* SHIPPING BANNER - Adjusted to avoid header overlap */
 .free-ship {
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 10px;
   z-index: 100;
@@ -230,6 +238,9 @@ footer {
   .card { flex: 1 1 100%; } /* Cards take full width on small phones */
 }
 
+/* ========================================================
+   FAQ SECTION
+   ======================================================== */
 .faq-container {
   background-color: #151a2d;
   border-radius: 8px;
@@ -293,8 +304,16 @@ footer {
   line-height: 1.6;
 }
 
+/* Centers the FAQ section */
+.faq-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
 /* ========================================================
-   NEW ADDITIONS FOR INFO.HTML
+   INFO & SHIPPING PAGES
    ======================================================== */
 
 /* General content blocks to match main page cards */
@@ -389,72 +408,85 @@ footer {
   content: "▲ close";
   color: #22c55e;
 }
-/* Centers the FAQ section without breaking your existing .faq-container constraints */
-.faq-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  width: 100%;
+
+/* Parameter Card Text Animations */
+.param-desc {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin-top 0.3s ease;
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin-top: 0;
+  font-weight: normal;
 }
-/* shipping*/
+
+.param-desc strong {
+  display: inline;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+/* Shipping page list styling */
 .step-list {
-      counter-reset: step-counter;
-      list-style: none;
-      padding-left: 0;
-    }
+  counter-reset: step-counter;
+  list-style: none;
+  padding-left: 0;
+}
 
-    .step-list li {
-      position: relative;
-      padding-left: 3.5rem;
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
+.step-list li {
+  position: relative;
+  padding-left: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+}
 
-    .step-list li::before {
-      counter-increment: step-counter;
-      content: counter(step-counter);
-      position: absolute;
-      left: 0;
-      top: -4px;
-      width: 2.2rem;
-      height: 2.2rem;
-      background-color: #020617; /* matches body bg */
-      color: #22c55e; /* matches accent green */
-      font-weight: bold;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #22c55e;
-    }
+.step-list li::before {
+  counter-increment: step-counter;
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: -4px;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: #020617; /* matches body bg */
+  color: #22c55e; /* matches accent green */
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #22c55e;
+}
 
-    .alert-box {
-      background-color: #1e293b;
-      border-left: 4px solid #facc15; /* yellow alert */
-      padding: 1.2rem;
-      margin: 1.5rem 0;
-      border-radius: 0 8px 8px 0;
-      color: #e2e8f0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+.alert-box {
+  background-color: #1e293b;
+  border-left: 4px solid #facc15; /* yellow alert */
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #e2e8f0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    .alert-box strong {
-      color: #facc15;
-    }
+.alert-box strong {
+  color: #facc15;
+}
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
 
-    @media (min-width: 600px) {
-      .grid-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+@media (min-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* ========================================================
-   NEW ADDITIONS FOR PRICING SECTION
+   PRICING SECTION
    ======================================================== */
 
 .pricing-card {
@@ -583,6 +615,7 @@ footer {
   font-family: Arial, sans-serif;
   margin-top: 10px;
 }
+
 /* ========================================================
    CALCULATOR SPECIFIC STYLES
    ======================================================== */
@@ -625,67 +658,54 @@ footer {
 }
 a:link{color:#e2e8f0}
 
-
-/* Container & Question styling */
-.faq-item {
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 8px;
+/* ========================================================
+   CAROUSEL SPECIFIC STYLES
+   ======================================================== */
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 16px 0;
-    text-align: left;
-    font-size: 1.05rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+  height: 180px; 
 }
 
-/* Icon rotation on click */
-.faq-question .icon {
-    font-size: 1.4rem;
-    line-height: 1;
-    transition: transform 0.25s ease;
+.carousel-track img {
+  min-width: 100%; 
+  height: 100%;
+  object-fit: cover;
 }
 
-.faq-item.active .faq-question .icon {
-    transform: rotate(45deg);
+/* Overlaid Navigation Arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4); 
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-/* Hidden by default with smooth height transition */
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8); 
 }
 
-.faq-answer p {
-    margin: 0;
-    padding: 0 0 16px 0;
-    line-height: 1.6;
-    color: #fafcff;
+.carousel-btn.prev {
+  left: 5px;
 }
 
-/* Parameter Card Text Animations */
-.param-desc {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, margin-top 0.3s ease;
-  font-size: 13px;
-  color: #94a3b8;
-  line-height: 1.4;
-  margin-top: 0;
-  font-weight: normal;
+.carousel-btn.next {
+  right: 5px;
 }
 
-.param-desc strong {
-  display: inline;
-  color: #e2e8f0;
-  font-size: 13px;
-}
+.card.sold::before { content: "SOLD OUT"; position: absolute; top: 10px; left: 10px; /* Adjust to right: 10px; if you want it where the HIGH badge was */ z-index: 10; background: red; color: white; padding: 5px 12px; font-size: 11px; font-weight: bold; border-radius: 20px; width: max-content; box-shadow: 0 2px 5px rgba(0,0,0,0.3); } /* 2. Hides the HIGH/MID/LOW grades, extra badges, and any duplicate manual sold-out divs */ .card.sold .grade, .card.sold .grade1, .card.sold .grade2, .card.sold .badge, .card.sold .sold-out { display: none !important; } /* 3. Greys out the button and prevents clicking */ .card.sold .button { background: #475569 !important; color: #94a3b8 !important; pointer-events: none; font-size: 0; } /* 4. Replaces the button text with "Out of Stock" */ .card.sold .button::after { content: "Out of Stock"; font-size: 18px; }

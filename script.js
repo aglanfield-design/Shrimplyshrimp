@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const heightInput = parseFloat(document.getElementById('tank-height').value);
             const isMetric = document.getElementById('unit-toggle').value === 'metric';
 
-            if (!lengthInput || !widthInput || !heightInput) {
-                alert("Please fill out all tank dimensions to calculate your setup.");
+            if (!lengthInput || !widthInput || !heightInput || lengthInput <= 0 || widthInput <= 0 || heightInput <= 0) {
+                alert("Please enter valid, positive dimensions for all tank measurements.");
                 return;
             }
 
@@ -140,4 +140,45 @@ document.addEventListener("DOMContentLoaded", function() {
             resultsDiv.classList.remove('hidden');
         });
     }
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all carousels on the page
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const images = Array.from(track.children);
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        let currentIndex = 0;
+
+        // Function to slide the track
+        function updateCarousel() {
+            const width = carousel.clientWidth;
+            track.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
+
+        // Next Button Click
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first image
+            }
+            updateCarousel();
+        });
+
+        // Previous Button Click
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = images.length - 1; // Loop back to the last image
+            }
+            updateCarousel();
+        });
+        
+        // Recalculate widths if the user resizes the browser window
+        window.addEventListener('resize', updateCarousel);
+    });
 });
